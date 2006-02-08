@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 use strict;
-use Test::More tests => 4;
+use Test::More tests => 6;
 
 use DBI;
 use Class::DBI::Loader;
@@ -34,6 +34,25 @@ SKIP:
       $class = $loader->find_class('customer');
    };
    ok(!$@,'find customer class');
+
+   my $newcust;
+
+   eval
+   {
+      $newcust = $class->insert({
+                               fname => 'John',
+                               lname => 'Cooper Clarke',
+                               company => 'Test company'
+                            });
+   };
+   ok(!$@ && defined $newcust,"Insert new customer");
+
+   my $neworder;
+   eval
+   {
+      $neworder = $newcust->add_to_order({ship_instruct => 'Testshipping'});
+   };
+   ok(!$@ && defined $neworder,"Insert child order");
 
    my @customers;
    ok(@customers = $class->retrieve_all(),'Retrieve customers');
