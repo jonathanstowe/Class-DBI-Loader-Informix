@@ -5,7 +5,7 @@ require Class::DBI;
 use base qw(Class::DBI);
 use vars qw($VERSION);
 
-($VERSION) = $Revision: 1.2 $ = /([\d.]+)/;
+($VERSION) = q$Revision: 1.3 $ =~ /([\d.]+)/;
 
 =head1 NAME
 
