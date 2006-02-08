@@ -9,7 +9,7 @@ use DBI;
 use Carp;
 
 
-$VERSION = '0.01';
+($VERSION) = $Revision: 1.2 $ = /([\d.]+)/;
 
 =head1 NAME
 
