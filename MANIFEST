@@ -6,4 +6,5 @@ t/01load.t
 t/02tables.t
 t/03stores.t
 README
-CHANGES
+ChangeLog
+META.yml                                Module meta-data (added by MakeMaker)

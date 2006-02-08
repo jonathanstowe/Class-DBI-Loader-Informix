@@ -3,6 +3,9 @@ README for Class::DBI::Loader::Informix
 Introduction
 ===========
 
+This package provides a Class::DBI::Loader implementation and a Class::DBI
+sub class that will enable these modules to work nicely with the Informix
+database management system.
 
 Prerequisites
 =============

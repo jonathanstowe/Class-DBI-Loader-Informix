@@ -2,7 +2,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     'NAME'         => 'Class::DBI::Loader::Informix',
-    'VERSION_FROM' => 'lib/Class/DBI/Loader/Informix.pm',
+    'VERSION'      => '0.02',
     'PREREQ_PM'    => {
         Test::More         => 0.32,
         DBD::Informix      => 2005.02,
