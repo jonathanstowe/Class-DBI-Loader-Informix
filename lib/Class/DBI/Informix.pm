@@ -5,7 +5,7 @@ require Class::DBI;
 use base qw(Class::DBI);
 use vars qw($VERSION);
 
-$VERSION = '0.07';
+($VERSION) = $Revision: 1.2 $ = /([\d.]+)/;
 
 =head1 NAME
 
@@ -21,14 +21,21 @@ Class::DBI::Informix - Class::DBI extension for Informix
 
 =head1 DESCRIPTION
 
-This module is primarily intended to support L<Class::DBI::Loader::Informix).
+This module implements a sub class of L<Class::DBI> that provides for
+some of the quirks of the Informix databases. You should probably be
+using this module rather than L<Class::DBI> if you are working with an
+Informix database.
 
-It provides one method set_up_table() that will setup the columns and the
-primary key for the specified table.
+It provides one public method set_up_table() that will setup the columns 
+and the primary key for the specified table.
 
 =cut
 
-sub _croak { require Carp; Carp::croak(@_); }
+sub _croak 
+{ 
+   require Carp; 
+   Carp::croak(@_); 
+}
 
 sub set_up_table
 {
@@ -95,6 +102,20 @@ SQL
     $class->columns( All     => @cols );
 }
 
+# It appears that none of the methods that DBI::Class uses to
+# obtain the last serial value work.
+sub _auto_increment_value 
+{
+   my ($self) = @_;
+   my $dbh  = $self->db_Main();
+
+   my $id = $dbh->{ix_sqlerrd}[1] 
+      or  $self->_croak("Can't get last insert id");
+
+   return $id;
+}
+
+
 =head1 BUGS
                                                                                 
 This has only tested with IDS 9.40.UC2E1 and could well be using
@@ -107,8 +128,8 @@ specify the server version that use are using.
 All bug reports and patches should be made via RT at:
                                                                                 
    bug-Class-DBI-Loader-Informix@rt.cpan.org
-                                                                                   
-   That way I'm less likely to ignore them.
+
+That way I'm less likely to ignore them.
                                                                                    
 
 =head1 SEE ALSO
