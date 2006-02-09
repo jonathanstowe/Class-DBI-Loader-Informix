@@ -1,6 +1,7 @@
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
+    (MM->can('signature_target') ? (SIGN => 1) : ()),
     'NAME'         => 'Class::DBI::Loader::Informix',
     'VERSION'      => '0.02',
     'PREREQ_PM'    => {
