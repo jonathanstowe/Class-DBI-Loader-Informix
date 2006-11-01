@@ -9,7 +9,7 @@ use DBI;
 use Carp;
 
 
-$VERSION = '0.03';
+$VERSION = '1.4';
 
 =head1 NAME
 
