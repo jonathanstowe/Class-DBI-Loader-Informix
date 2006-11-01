@@ -41,8 +41,8 @@ You will need to then specify the appropriate location with :
 BUGS
 ====
 
-This has only tested with IDS 9.40.UC2E1 and could well be using
-specific features of that database.  If reporting a bug please
+This has only tested with IDS 9.40.UC2E1 and 10.UC5 and could well be using
+specific features of those databases.  If reporting a bug please
 specify the server version that use are using. 
 
 

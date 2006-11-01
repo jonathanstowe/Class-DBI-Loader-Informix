@@ -9,7 +9,7 @@ use DBI;
 use Carp;
 
 
-($VERSION) = q$Revision: 1.3 $ =~ /([\d.]+)/;
+$VERSION = '0.03';
 
 =head1 NAME
 
@@ -97,8 +97,8 @@ SQL
 
 =head1 BUGS
                                                                                 
-This has only tested with IDS 9.40.UC2E1 and could well be using
-specific features of that database.  If reporting a bug please
+This has only tested with IDS 9.40.UC2E1 and 10.UC5 and could well be using
+specific features of those databases.  If reporting a bug please
 specify the server version that use are using.
                                                                                 
 =head1 SUPPORT

@@ -4,6 +4,7 @@ WriteMakefile(
     (MM->can('signature_target') ? (SIGN => 1) : ()),
     'NAME'         => 'Class::DBI::Loader::Informix',
     'VERSION'      => '0.02',
+    'PL_FILES'     => {},
     'PREREQ_PM'    => {
         Test::More         => 0.32,
         DBD::Informix      => 2005.02,

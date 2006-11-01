@@ -5,7 +5,7 @@ require Class::DBI;
 use base qw(Class::DBI);
 use vars qw($VERSION);
 
-($VERSION) = q$Revision: 1.3 $ =~ /([\d.]+)/;
+$VERSION = '0.03';
 
 =head1 NAME
 
@@ -36,6 +36,17 @@ sub _croak
    require Carp; 
    Carp::croak(@_); 
 }
+
+=over 2
+
+=item set_up_table
+
+Determines the Primary key and column names for the given table
+will be called by Class::DBI::Loader
+
+=back
+
+=cut
 
 sub set_up_table
 {
@@ -118,8 +129,8 @@ sub _auto_increment_value
 
 =head1 BUGS
                                                                                 
-This has only tested with IDS 9.40.UC2E1 and could well be using
-specific features of that database.  If reporting a bug please
+This has only tested with IDS 9.40.UC2E1 and 10.UC5 and could well be using
+specific features of those databases.  If reporting a bug please
 specify the server version that use are using.
                                                                                 
                                                                                 
